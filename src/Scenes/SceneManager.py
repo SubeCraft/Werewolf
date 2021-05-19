@@ -1,4 +1,4 @@
-from src.Scenes.MainMenuScene import MainMenuScene
+from src.Scenes.Menus.MainMenuScene import MainMenuScene
 
 
 class SceneManager:
