@@ -7,9 +7,11 @@ name = "pypi"
 pygame = "*"
 
 [dev-packages]
+pyinstaller = "*"
 
 [scripts]
 start = "pipenv run python main.py"
+build = "pipenv run pyinstaller -n Werewolf -F --noconsole --clean main.py"
 
 [requires]
 python_version = "3.9"

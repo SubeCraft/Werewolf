@@ -6,9 +6,10 @@ class MainMenuScene:
         self.component_manager = ComponentManager()
 
     def load(self):
-        self.component_manager.add_component(
-            "TextComponent", text="Hello World !", position=(100, 100),
-            font_name="test", font_size=30
+        self.component_manager.add_component("ButtonComponent",
+                                             text="Pseudo: ", position=(100, 100),
+                                             font_name="arial", font_size=30,
+                                             action=[]
         )
 
         self.component_manager.load_component()

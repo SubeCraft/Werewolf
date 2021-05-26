@@ -11,22 +11,23 @@ class App:
     def __init__(self):
         self.window = pygame.display.set_mode(WINDOW_SIZE, FULLSCREEN)
 
+        self.scene_manager = SceneManager()
+
     def run(self):
         pygame.init()
         pygame.display.set_caption(WINDOW_TITLE)
 
-        scene_manager = SceneManager()
-        scene_manager.switch_scene("MainMenuScene")
+        self.scene_manager.switch_scene("MainMenuScene")
 
         while True:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
-                    sys.exit()
+                    sys.exit(0)
 
                 self.window.fill([0, 0, 0])
 
-                scene_manager.update_scene(event)
-                scene_manager.render_scene(self.window)
+                self.scene_manager.update_scene(event)
+                self.scene_manager.render_scene(self.window)
 
                 pygame.display.flip()

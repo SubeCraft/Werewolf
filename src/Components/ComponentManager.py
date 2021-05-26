@@ -1,4 +1,6 @@
 from src.Components.TextComponent import TextComponent
+from src.Components.InputBoxComponent import InputBoxComponent
+from src.Components.ButtonComponent import ButtonComponent
 
 
 class ComponentManager:
@@ -20,5 +22,9 @@ class ComponentManager:
             component.render(window)
 
     def add_component(self, name_component, **component_args):
-        self.components[name_component+str(self.id_component)] = globals()[name_component](component_args)
+        component_class = globals()[name_component](component_args)
+
+        self.components[name_component+str(self.id_component)] = component_class
         self.id_component += 1
+
+        return component_class
