@@ -4,7 +4,7 @@ from pygame.locals import QUIT, FULLSCREEN
 
 from src.Scenes.SceneManager import SceneManager
 
-from config.config import WINDOW_SIZE, WINDOW_TITLE
+from config import WINDOW_SIZE, WINDOW_TITLE
 
 
 class App:
