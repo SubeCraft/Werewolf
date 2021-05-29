@@ -4,14 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pygame = "*"
+pygame = "2.0.1"
 
 [dev-packages]
-pyinstaller = "*"
+pyinstaller = "4.3"
 
 [scripts]
 start = "pipenv run python main.py"
-build = "pipenv run pyinstaller -n Werewolf -F --noconsole --clean main.py"
+build = "pipenv run pyinstaller --name Werewolf --onefile --noconsole --clean main.py"
 
 [requires]
 python_version = "3.9"

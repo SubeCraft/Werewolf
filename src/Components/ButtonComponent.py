@@ -9,10 +9,10 @@ class ButtonComponent:
         self.text = self.args["text"]
         self.position = self.args["position"]
 
-        self.action = self.args["action"]
-
         self.font_name = self.args["font_name"]
         self.font_size = self.args["font_size"]
+
+        self.action = self.args["action"]
 
         self.surface = None
         self.surface_rect = None
