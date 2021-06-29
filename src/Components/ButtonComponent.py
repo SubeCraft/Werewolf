@@ -18,6 +18,8 @@ class ButtonComponent:
         self.surface = None
         self.surface_rect = None
 
+        self.window = None
+
     def load(self):
         self.surface = pygame.font.SysFont(self.font_name, self.font_size).render(self.text, False, self.text_color)
 
@@ -32,8 +34,19 @@ class ButtonComponent:
                     if not action["args"]:
                         action["builtin"]()
                     else:
-                        for action_arg in action["args"]:
-                            action["builtin"](action_arg)
+                        if action["builtin"] == "switch_scene":
+                            self.switch_scene(*action["args"], self.window)
+                        else:
+                            action["builtin"](*action["args"])
 
     def render(self, window):
+        self.window = window
         window.blit(self.surface, self.surface_rect)
+
+    def switch_scene(self, scene_name, window):
+        from src.Scenes.SceneManager import SceneManager
+
+        scene_manager = SceneManager()
+        scene_manager.switch_scene(scene_name)
+        scene_manager.load_scene()
+        scene_manager.render_update_scene(window)

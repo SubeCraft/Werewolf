@@ -1,6 +1,5 @@
-import pygame, sys
-
-from pygame.locals import QUIT, FULLSCREEN
+import pygame
+from pygame.locals import FULLSCREEN
 
 from src.Scenes.SceneManager import SceneManager
 
@@ -18,16 +17,5 @@ class App:
         pygame.display.set_caption(WINDOW_TITLE)
 
         self.scene_manager.switch_scene("MainMenuScene")
-
-        while True:
-            for event in pygame.event.get():
-                if event.type == QUIT:
-                    pygame.quit()
-                    sys.exit(0)
-
-                self.window.fill([0, 0, 0])
-
-                self.scene_manager.update_scene(event)
-                self.scene_manager.render_scene(self.window)
-
-                pygame.display.flip()
+        self.scene_manager.load_scene()
+        self.scene_manager.render_update_scene(self.window)

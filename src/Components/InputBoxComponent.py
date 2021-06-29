@@ -6,7 +6,7 @@ class InputBoxComponent:
     def __init__(self, args):
         self.args = args
 
-        self.text = ""
+        self.text = self.args.get("text", "")
 
         self.label = self.args.get("label", "Default label")
         self.position = self.args.get("position", (0, 0))
@@ -41,8 +41,7 @@ class InputBoxComponent:
                     self.text += event.unicode
 
                 self.surface = pygame.font.SysFont(self.font_name, self.font_size)\
-                    .render(self.label+self.text, False, [255, 255, 255])
-        print(self.text)
+                    .render(self.label+self.text, False, self.text_color)
 
     def render(self, window):
         window.blit(self.surface, self.surface_rect)

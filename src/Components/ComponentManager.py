@@ -1,3 +1,6 @@
+import pygame, sys
+from pygame.locals import QUIT
+
 from src.Components.TextComponent import TextComponent
 from src.Components.InputBoxComponent import InputBoxComponent
 from src.Components.ButtonComponent import ButtonComponent
@@ -13,9 +16,15 @@ class ComponentManager:
         for component in self.components.values():
             component.load()
 
-    def update_component(self, event):
-        for component in self.components.values():
-            component.update(event)
+    def update_component(self):
+        pygame.key.set_repeat(100, 50)
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit(0)
+
+            for component in self.components.values():
+                component.update(event)
 
     def render_component(self, window):
         for component in self.components.values():
