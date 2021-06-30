@@ -1,7 +1,7 @@
 # Werewolf
 
 ## Installation (window)
-Pour installer le jeu il suffit juste d'allez dans la [release](https://github.com/pygame/pygame/releases) la plus récente du repo et de télécharger le fichier qui se nomme Werewolf.exe
+Pour installer le jeu il suffit juste d'allez dans la [release](https://github.com/SubeCraft/Werewolf/releases) la plus récente du repo et de télécharger le fichier qui se nomme Werewolf.exe
 
 
 ## Installation de l'environement de développement
