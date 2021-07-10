@@ -9,6 +9,7 @@ class MainMenuScene:
 
     def load(self):
         from src.utils.constant import WIDTH, HEIGHT, FONT_PATH
+
         self.component_manager.add_component("ButtonComponent", text="Crée une partie",
                                              position=(WIDTH/2.50, HEIGHT/2.65), text_color="#492B12",
                                              font_name=FONT_PATH, font_size=70,

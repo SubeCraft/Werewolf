@@ -3,6 +3,8 @@ from pygame.locals import FULLSCREEN
 
 from src.Scenes.SceneManager import SceneManager
 
+from src.utils.INIParser import INIParser
+
 from config import WINDOW_SIZE, WINDOW_TITLE
 
 
@@ -11,6 +13,11 @@ class App:
         self.window = pygame.display.set_mode(WINDOW_SIZE, FULLSCREEN)
 
         self.scene_manager = SceneManager()
+
+        self.parser = INIParser("user.ini")
+        if not self.parser.parser.has_section("user"):
+            self.parser.add_section("user")
+            self.parser.add_value("user", "username", "")
 
     def run(self):
         pygame.init()
